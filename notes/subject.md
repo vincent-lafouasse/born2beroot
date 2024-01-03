@@ -35,3 +35,9 @@ rules :
 - bar
 
 ## script
+
+## misc
+
+for security
+- activate TTY mode
+- restrict sudo path
