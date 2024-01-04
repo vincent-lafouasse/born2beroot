@@ -1,5 +1,6 @@
 # notes
 
+## hostname
 
 ## users/groups
 
@@ -12,6 +13,7 @@ add user to group `usermod -aG GROUP USER` (-append -groups)
 get groups of user `groups USER`
 get group info `getent group GROUP`
 check local users `cat /etc/passwd | awk -F ':' '{print $1}'`
+    or `users`
 
 ## ssh
 
@@ -22,6 +24,8 @@ restart `sudo service ssh restart` or `service` instead of `systemctl`
 connect `ssh USER@localhost -p 4141`
 
 ## ufw
+
+fw = surveiller les ports et les connections eg seulement port ssh
 
 package `ufw`
 `sudo ufw`:
@@ -55,3 +59,10 @@ config at `/etc/sudoers` access via `visudo`
 ## crontab
 
 package `net-tools`
+edit with `sudo crontab -e root -e`
+
+## monitoring script 
+
+in `/usr/local/bin`
+
+## LVM = Logical Volume Manager
