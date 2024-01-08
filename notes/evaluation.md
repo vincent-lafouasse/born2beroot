@@ -77,6 +77,7 @@ difok = difference with old password
 passwrd age config at `/etc/login.defs`
 change manually with `sudo chage -M/m/W` max, min, warn expiration
 monitor with `sudo chage -l USER`
+change passwd with `sudo passwd USER`
 
 ## crontab
 
