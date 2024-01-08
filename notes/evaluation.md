@@ -1,29 +1,24 @@
 # notes
 
-## hostname
+## signature 
 
-## users/groups
+generate with _____________________
+check with `diff`
 
-`usermod` is at `/usr/sbin` or run as su
+## apparmor
 
-create user `sudo adduser USER`
-create group `sudo groupadd GROUP`
-add user to group `usermod -aG GROUP USER` (-append -groups)
-
-get groups of user `groups USER`
-get group info `getent group GROUP`
-check local users `cat /etc/passwd | awk -F ':' '{print $1}'`
-    or `users`
+= restreindre les acces des process/programmes
+monitor with `sudo aa-status`
 
 ## ssh
 
 package `openssh-server`
 status `sudo systemctl status ssh` or `service` instead of `systemctl`
-ports at `/etc/ssh/sshd_config`
+ports/config at `/etc/ssh/sshd_config`
 restart `sudo service ssh restart` or `service` instead of `systemctl`
 connect `ssh USER@localhost -p 4141`
 
-## ufw
+## ufw = uncomplicated firewall
 
 fw = surveiller les ports et les connections eg seulement port ssh
 
@@ -33,7 +28,38 @@ package `ufw`
 - status numbered
 - allow ssh
 - allow PORT
-- delete deny RULE
+- delete RULE
+- delete allow PORT
+
+## users/groups
+
+`usermod` is at `/usr/sbin` or run as su
+
+create user `sudo adduser USER` et pas useradd
+create group `sudo groupadd GROUP`
+add user to group `usermod -aG GROUP USER` (-append -groups)
+
+get groups of user `groups USER`
+get group info `getent group GROUP`
+check local users `cat /etc/passwd | awk -F ':' '{print $1}'`
+
+## hostname
+
+monitor with `hostnamectl`
+change with `hostnamectl set-hostname HOSTNAME`  + reboot
+
+## LVM = Logical Volume Manager
+
+monitor with `lsblk`
+
+## sudo log
+
+at `/var/log/sudo/sudo.log`
+config at `/etc/sudoers` access via `visudo`
+
+## packages
+
+show packages with `dpkg -l`
 
 ## port forwarding
 
@@ -51,11 +77,6 @@ passwrd age config at `/etc/login.defs`
 change manually with `sudo chage -M/m/W` max, min, warn expiration
 monitor with `sudo chage -l USER`
 
-## sudo log
-
-at `/var/log/sudo/sudo.log`
-config at `/etc/sudoers` access via `visudo`
-
 ## crontab
 
 package `net-tools`
@@ -64,5 +85,3 @@ edit with `sudo crontab -e root -e`
 ## monitoring script 
 
 in `/usr/local/bin`
-
-## LVM = Logical Volume Manager
