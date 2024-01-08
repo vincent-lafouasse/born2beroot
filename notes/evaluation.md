@@ -37,6 +37,7 @@ package `ufw`
 
 create user `sudo adduser USER` et pas useradd
 create group `sudo groupadd GROUP`
+delete group `groupdel [OPTIONS] GROUP`
 add user to group `usermod -aG GROUP USER` (-append -groups)
 
 get groups of user `groups USER`
